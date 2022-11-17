@@ -35,6 +35,12 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          {{- if .Values.customConfig.enabled }}
+          volumeMounts:
+            - name: custom-config
+              mountPath: /app/config.json
+              subPath: config
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /
@@ -56,4 +62,10 @@ spec:
       {{- with .Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.customConfig.enabled }}
+      volumes:
+        - name: custom-config
+          configMap:
+            name: {{ include "cinny.fullname" . }}
       {{- end }}
