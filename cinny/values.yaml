@@ -24,7 +24,7 @@ serviceAccount:
   name: ""
 
 customConfig:
-  enabled: true
+  enabled: false
   data:
     defaultHomeserver: 3
     homeserverList:
