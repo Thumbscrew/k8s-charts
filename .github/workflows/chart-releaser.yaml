@@ -1,8 +1,7 @@
 name: Release Charts
 
 on:
-  # push:
-  pull_request:
+  push:
     branches:
       - master
 
