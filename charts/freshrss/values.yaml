@@ -3,6 +3,8 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+strategy: 
+  type: Recreate
 
 image:
   repository: freshrss/freshrss
@@ -51,6 +53,10 @@ service:
 persistence:
   enabled: false
   existingClaim: ""
+  annotations: {}
+  accessMode: ReadWriteOnce
+  storageClass: ""
+  size: 10Gi
 
 timezone: UTC
 

@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include "freshrss.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  strategy:
+  {{ toYaml .Values.strategy | indent 4 }}
   selector:
     matchLabels:
       {{- include "freshrss.selectorLabels" . | nindent 6 }}
@@ -40,21 +40,6 @@ spec:
           env:
             - name: TZ
               value: {{ .Values.timezone }}
-            # {{- if .Values.externalPostgresql.enabled }}
-            # {{- with .Values.externalPostgresql }}
-            # - name: FRESHRSS_INSTALL
-            #   value: |
-            #     --api_enabled
-            #     --base_url ${BASE_URL}
-            #     --db-base ${DB_BASE}
-            #     --db-host ${DB_HOST}
-            #     --db-password ${DB_PASSWORD}
-            #     --db-type pgsql
-            #     --db-user ${DB_USER}
-            #     --default_user admin
-            #     --language en
-            # {{- end }}
-            # {{- end }}
           livenessProbe:
             httpGet:
               path: /
@@ -72,7 +57,7 @@ spec:
       - name: freshrss-data
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "freshrss.fullname" . }}-freshrss{{- end }}
+          claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "freshrss.fullname" . }}-pvc{{- end }}
       {{- else }}
         emptyDir: {}
       {{- end }}
