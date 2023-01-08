@@ -39,11 +39,31 @@ spec:
               protocol: TCP
           env:
             - name: TZ
-              value: {{ .Values.timezone }}
+              value: {{ .Values.freshrss.timezone }}
+            - name: FRESHRSS_ENV
+              value: {{ .Values.freshrss.freshEnv }}
+            {{- if .Values.freshrss.autoInstall.enabled }}
+            - name: FRESHRSS_INSTALL
+              value: |-
+              {{- if .Values.freshrss.autoInstall.apiEnabled }}
+                --api_enabled
+              {{- end }}
+                --language {{ .Values.freshrss.autoInstall.language }}
+                --default_user {{ .Values.freshrss.autoInstall.defaultUser.user }}
+            - name: FRESHRSS_USER
+              value: |-
+                {{- with .Values.freshrss.autoInstall.defaultUser }}
+                --email {{ .email }}
+                --password {{ .password }}
+                --user {{ .user }}
+                {{- end }}
+                --language {{ .Values.freshrss.autoInstall.language }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /
               port: http
+            initialDelaySeconds: 30
           readinessProbe:
             httpGet:
               path: /
