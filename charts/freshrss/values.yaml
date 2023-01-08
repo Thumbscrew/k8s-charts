@@ -46,7 +46,7 @@ freshrss:
   timezone: UTC
   freshEnv: production
   autoInstall:
-    enabled: true
+    enabled: false
     baseUrl: freshrss.local
     language: en
     apiEnabled: false
