@@ -18,4 +18,23 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/cinny-1.0.0/cinny-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-03T18:12:34.773976372Z"
+  freshrss:
+  - apiVersion: v2
+    appVersion: 1.20.2
+    created: "2023-01-08T14:36:48.317487579Z"
+    description: A Helm chart for FreshRSS
+    digest: 1698041bee7c4ed22fceb472566bc9bfc4feb2f350a6d280f796835d7390ea48
+    home: https://freshrss.org/
+    icon: https://freshrss.org/images/icon.svg
+    keywords:
+    - freshrss
+    - rss
+    - feed
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-0.1.0/freshrss-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-01-08T14:36:48.317604281Z"
