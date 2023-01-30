@@ -2,6 +2,23 @@ apiVersion: v1
 entries:
   cinny:
   - apiVersion: v2
+    appVersion: v2.2.4
+    created: "2023-01-30T10:17:57.65651911Z"
+    description: A Helm chart for the Cinny Matrix Client
+    digest: 3e759f71aed2186316959fd5b7106210091065129a35ebace4e6549ec1dd16e2
+    home: https://cinny.in/
+    icon: https://cinny.in/assets/cinny.svg
+    keywords:
+    - cinny
+    - matrix
+    name: cinny
+    sources:
+    - https://github.com/cinnyapp/cinny
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/cinny-1.0.2/cinny-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: v2.2.3
     created: "2023-01-15T17:04:16.163723863Z"
     description: A Helm chart for the Cinny Matrix Client
@@ -72,4 +89,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-0.1.0/freshrss-0.1.0.tgz
     version: 0.1.0
-generated: "2023-01-15T17:04:16.163754164Z"
+generated: "2023-01-30T10:17:57.65653251Z"
