@@ -55,6 +55,24 @@ entries:
   freshrss:
   - apiVersion: v2
     appVersion: 1.20.2
+    created: "2023-02-05T15:11:05.116742197Z"
+    description: A Helm chart for FreshRSS
+    digest: bc18d03e25e1e9a08fd473a42ad71c4029f2bcc2bf2ac48fd1fff82acd06e74a
+    home: https://freshrss.org/
+    icon: https://freshrss.org/images/icon.svg
+    keywords:
+    - freshrss
+    - rss
+    - feed
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-0.2.0/freshrss-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.20.2
     created: "2023-01-08T14:44:52.722256367Z"
     description: A Helm chart for FreshRSS
     digest: dc422d8310cb41e595206a25806ce8af915abe55d01fa57a928b62186e5f4392
@@ -89,4 +107,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-0.1.0/freshrss-0.1.0.tgz
     version: 0.1.0
-generated: "2023-01-30T10:17:57.65653251Z"
+generated: "2023-02-05T15:11:05.116769497Z"
