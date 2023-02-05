@@ -42,6 +42,10 @@ spec:
               value: {{ .Values.freshrss.timezone }}
             - name: FRESHRSS_ENV
               value: {{ .Values.freshrss.freshEnv }}
+            {{- if .Values.freshrss.cron.enabled }}
+            - name: CRON_MIN
+              value: {{ .Values.freshrss.cron.cronMin }}
+            {{- end }}
             {{- if .Values.freshrss.autoInstall.enabled }}
             - name: FRESHRSS_INSTALL
               value: |-
