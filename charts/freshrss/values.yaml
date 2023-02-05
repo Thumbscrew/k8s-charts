@@ -59,6 +59,9 @@ freshrss:
       user: admin
       password: admin
       email: admin@example.com
+  cron:
+    enabled: false
+    cronMin: "13,43" # Minute(s) past the hour to run cron
 
 persistence:
   enabled: false
