@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "unifi-controller.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "unifi-controller.fullname" . }}:8080']
   restartPolicy: Never

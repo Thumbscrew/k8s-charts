@@ -7,9 +7,25 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - port: 8080
+      targetPort: 8080
       protocol: TCP
       name: http
+    - port: 8443
+      targetPort: 8443
+      protocol: TCP
+      name: https
+    - port: 3478
+      targetPort: 3478
+      protocol: TCP
+      name: stun
+    - port: 1900
+      targetPort: 1900
+      protocol: UDP
+      name: l2discover
+    - port: 5514
+      targetPort: 5514
+      protocol: UDP
+      name: syslog
   selector:
     {{- include "unifi-controller.selectorLabels" . | nindent 4 }}
