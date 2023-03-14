@@ -57,6 +57,13 @@ spec:
           #     path: /
           #     port: http
           #   initialDelaySeconds: 120
+          env:
+            - name: TZ
+              value: {{ .Values.config.timezone }}
+            - name: MEM_STARTUP
+              value: {{ .Values.config.jvmMemory.startup }}
+            - name: MEM_LIMIT
+              value: {{ .Values.config.jvmMemory.limit }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
