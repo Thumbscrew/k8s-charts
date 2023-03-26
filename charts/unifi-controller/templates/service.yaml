@@ -24,7 +24,7 @@ spec:
       targetPort: 3478
       protocol: TCP
       name: stun
-    {{- if eq .Values.service.separateProtocols false }}
+    {{- if .Values.service.combinedProtocols }}
     - port: 1900
       targetPort: 1900
       protocol: UDP
@@ -36,7 +36,7 @@ spec:
     {{- end }}
   selector:
     {{- include "unifi-controller.selectorLabels" . | nindent 4 }}
-{{- if eq .Values.service.separateProtocols true }}
+{{- if eq .Values.service.combinedProtocols false }}
 ---
 apiVersion: v1
 kind: Service
