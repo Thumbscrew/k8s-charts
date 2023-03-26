@@ -125,4 +125,15 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-0.1.0/freshrss-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-06T11:15:38.801815071Z"
+  unifi-controller:
+  - apiVersion: v2
+    appVersion: 7.3.83
+    created: "2023-03-26T20:17:01.079570966Z"
+    description: A Helm chart for the Unifi Controller
+    digest: 2ef123b308a47171d5bdaf794e71e6b389d110098646ae8772393f308a3455f2
+    name: unifi-controller
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-03-26T20:17:01.079584366Z"
