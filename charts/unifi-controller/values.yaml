@@ -50,6 +50,8 @@ securityContext: {}
 
 service:
   type: ClusterIP
+  # Separate TCP and UDP ports into different services (required for MetalLB)
+  separateProtocols: false
   annotations: {}
 
 ingress:

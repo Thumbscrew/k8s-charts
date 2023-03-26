@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -23,6 +24,33 @@ spec:
       targetPort: 3478
       protocol: TCP
       name: stun
+    {{- if eq .Values.service.separateProtocols false }}
+    - port: 1900
+      targetPort: 1900
+      protocol: UDP
+      name: l2discover
+    - port: 5514
+      targetPort: 5514
+      protocol: UDP
+      name: syslog
+    {{- end }}
+  selector:
+    {{- include "unifi-controller.selectorLabels" . | nindent 4 }}
+{{- if eq .Values.service.separateProtocols true }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "unifi-controller.fullname" . }}-udp
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
+  labels:
+    {{- include "unifi-controller.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
     - port: 1900
       targetPort: 1900
       protocol: UDP
@@ -33,3 +61,4 @@ spec:
       name: syslog
   selector:
     {{- include "unifi-controller.selectorLabels" . | nindent 4 }}
+{{- end }}
