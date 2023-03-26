@@ -21,3 +21,6 @@
 .idea/
 *.tmproj
 .vscode/
+
+# Test values
+values.test.yaml
