@@ -8,7 +8,7 @@ image:
   repository: ajbura/cinny
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v2.2.4"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
