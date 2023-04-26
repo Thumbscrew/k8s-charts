@@ -3,13 +3,13 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-strategy: 
+strategy:
   type: Recreate
 
 image:
   repository: freshrss/freshrss
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 imagePullSecrets: []
@@ -17,12 +17,11 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -43,25 +42,41 @@ service:
   port: 80
 
 freshrss:
+  # -- PHP Timezone - see https://www.php.net/timezones
   timezone: UTC
+  # -- Enables additional development information if set to `development` (increases the level of logging and ensures that errors are displayed)
   freshEnv: production
   autoInstall:
+    # -- Enable automatic install - configurable through the web application if disabled
     enabled: false
+    # -- URL for FreshRSS instance
     baseUrl: freshrss.local
+    # -- Language short code
     language: en
+    # -- Enable FreshRSS API
     apiEnabled: false
+    # -- Database type - `pgsql`, `mysql` or `sqlite`
     dbType: sqlite
+    # -- Database name
     dbBase: freshrss
+    # -- Database hostname
     dbHost: ""
+    # -- Database password
     dbPassword: freshrss
+    # -- Database user
     dbUser: freshrss
     defaultUser:
+      # -- Username for the default user
       user: admin
+      # -- Password for the default user
       password: admin
+      # -- Email for the default user
       email: admin@example.com
   cron:
+    # -- Enable Cron to periodically refresh feeds
     enabled: false
-    cronMin: "13,43" # Minute(s) past the hour to run cron
+    # -- Minute(s) past the hour to run cron
+    cronMin: "13,43"
 
 persistence:
   enabled: false
