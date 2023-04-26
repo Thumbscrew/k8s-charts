@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: ajbura/cinny
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 imagePullSecrets: []
@@ -15,24 +15,27 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
   name: ""
 
 customConfig:
+  # -- Enable the use of a custom config.json - see https://github.com/cinnyapp/cinny/blob/dev/config.json
   enabled: false
   data:
+    # -- Index (starting with 0) in homeserverList of the server to display by default
     defaultHomeserver: 3
+    # -- List of Matrix homeservers to display
     homeserverList:
       - converser.eu
       - envs.net
       - halogen.city
       - matrix.org
       - mozilla.org
+    # -- Allow the user to enter a homeserver not in the list
     allowCustomHomeservers: true
 
 podAnnotations: {}
