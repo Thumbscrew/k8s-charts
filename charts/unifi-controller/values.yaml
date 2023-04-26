@@ -5,7 +5,7 @@
 image:
   repository: quay.io/linuxserver.io/unifi-controller
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 imagePullSecrets: []
@@ -13,9 +13,12 @@ nameOverride: ""
 fullnameOverride: ""
 
 config:
+  # -- Timezone - see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
   timezone: Etc/UTC
   jvmMemory:
+    # -- Integer value in MB or `default` for startup memory for JVM
     startup: default
+    # -- Integer value in MB or `default` for memory limit for JVM
     limit: default
 
 persistence:
@@ -27,12 +30,11 @@ persistence:
   size: 1Gi
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -50,7 +52,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  # Use the same service for TCP and UDP ports
+  # -- Use the same service for TCP and UDP ports - set to disabled if using a LoadBalancer with MetalLB
   combinedProtocols: true
   annotations: {}
 
