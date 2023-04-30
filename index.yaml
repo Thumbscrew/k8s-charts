@@ -195,6 +195,27 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-0.1.0/freshrss-0.1.0.tgz
     version: 0.1.0
+  pgadmin:
+  - apiVersion: v2
+    appVersion: "6.21"
+    created: "2023-04-30T18:20:38.483956462Z"
+    description: A Helm chart for pgAdmin, the open source PostgreSQL administration
+      tool.
+    digest: c3f6a4948c9fd3951921492f0bede619f202d482689eb004eccb6fbad5f0d9c4
+    home: https://www.pgadmin.org/
+    keywords:
+    - pgadmin
+    - postgres
+    - postgresql
+    - database
+    - administration
+    name: pgadmin
+    sources:
+    - https://github.com/pgadmin-org/pgadmin4
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
+    version: 0.1.0
   unifi-controller:
   - apiVersion: v2
     appVersion: 7.3.83
@@ -216,4 +237,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2023-04-26T20:52:10.991521827Z"
+generated: "2023-04-30T18:20:38.483999562Z"
