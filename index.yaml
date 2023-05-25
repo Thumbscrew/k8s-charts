@@ -89,6 +89,25 @@ entries:
   focalboard:
   - apiVersion: v2
     appVersion: 7.10.0
+    created: "2023-05-25T12:54:18.346786179Z"
+    description: A Helm chart for Mattermost Focalboard
+    digest: c79e7d5a49838b55eecb3b85a487ab6c6dc7bba5a3d92eae4e864646bb25c95b
+    home: https://www.focalboard.com/download/personal-edition/
+    icon: https://www.focalboard.com/img/logo.svg?version=v2
+    keywords:
+    - focalboard
+    - kanban
+    - mattermost
+    - project management
+    name: focalboard
+    sources:
+    - https://github.com/mattermost/focalboard
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/focalboard-0.2.0/focalboard-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 7.10.0
     created: "2023-05-25T12:45:54.990948806Z"
     description: A Helm chart for Mattermost Focalboard
     digest: f1e2ac82b64a8203b7c85efcbaa345514b06c4eef16dea39e52474c1127d42a1
@@ -257,4 +276,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-25T12:45:54.990971907Z"
+generated: "2023-05-25T12:54:18.346811479Z"
