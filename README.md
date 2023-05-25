@@ -31,6 +31,7 @@ I will generally only maintain the charts that I am currently using. See below f
 |freshrss|RSS reader written in PHP|https://freshrss.org/|Yes|
 |pgadmin|PostgreSQL database management tool|https://www.pgadmin.org/|Yes|
 |unifi-controller|Unifi Controller (using linuxserver.io's image) for managing Unifi hardware||Yes|
+|focalboard|Kanban board software by Mattermost|https://www.focalboard.com/https://www.focalboard.com/|Yes|
 
 ## Contributing
 
