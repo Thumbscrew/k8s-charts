@@ -236,6 +236,26 @@ entries:
     version: 0.1.0
   pgadmin:
   - apiVersion: v2
+    appVersion: "7.4"
+    created: "2023-07-13T19:34:39.042790332Z"
+    description: A Helm chart for pgAdmin, the open source PostgreSQL administration
+      tool.
+    digest: b4567aa7dffa1c33eb06f59432bc8367d7523daf814cc6ed1e9e8de0edaa1edf
+    home: https://www.pgadmin.org/
+    keywords:
+    - pgadmin
+    - postgres
+    - postgresql
+    - database
+    - administration
+    name: pgadmin
+    sources:
+    - https://github.com/pgadmin-org/pgadmin4
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/pgadmin-1.0.0/pgadmin-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
     appVersion: "6.21"
     created: "2023-04-30T18:20:38.483956462Z"
     description: A Helm chart for pgAdmin, the open source PostgreSQL administration
@@ -296,4 +316,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-13T19:23:03.643988955Z"
+generated: "2023-07-13T19:34:39.042843336Z"
