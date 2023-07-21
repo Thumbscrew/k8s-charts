@@ -55,16 +55,17 @@ freshrss:
     language: en
     # -- Enable FreshRSS API
     apiEnabled: false
-    # -- Database type - `pgsql`, `mysql` or `sqlite`
-    dbType: sqlite
-    # -- Database name
-    dbBase: freshrss
-    # -- Database hostname
-    dbHost: ""
-    # -- Database password
-    dbPassword: freshrss
-    # -- Database user
-    dbUser: freshrss
+    db:
+      # -- Database type - `pgsql`, `mysql` or `sqlite`
+      type: sqlite
+      # -- Database name
+      name: freshrss
+      # -- Database hostname
+      host: ""
+      # -- Database password
+      password: freshrss
+      # -- Database user
+      user: freshrss
     defaultUser:
       # -- Username for the default user
       user: admin

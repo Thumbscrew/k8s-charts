@@ -54,6 +54,13 @@ spec:
               {{- end }}
                 --language {{ .Values.freshrss.autoInstall.language }}
                 --default_user {{ .Values.freshrss.autoInstall.defaultUser.user }}
+              {{- if ne .Values.freshrss.autoInstall.db.type "sqlite" }}
+                --db-base {{ .Values.freshrss.autoInstall.db.name }}
+                --db-host {{ .Values.freshrss.autoInstall.db.host }}
+                --db-password {{ .Values.freshrss.autoInstall.db.password }}
+                --db-type {{ .Values.freshrss.autoInstall.db.type }}
+                --db-user {{ .Values.freshrss.autoInstall.db.user }}
+              {{- end }}
             - name: FRESHRSS_USER
               value: |-
                 {{- with .Values.freshrss.autoInstall.defaultUser }}
