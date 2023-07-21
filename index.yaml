@@ -128,6 +128,24 @@ entries:
   freshrss:
   - apiVersion: v2
     appVersion: 1.21.0
+    created: "2023-07-21T17:52:20.177282793Z"
+    description: A Helm chart for FreshRSS
+    digest: 481b8ea6514e2ed95fbba3f50e0a7c1c64d2f498acf04dd3b8e2296954bf16d7
+    home: https://freshrss.org/
+    icon: https://freshrss.org/images/icon.svg
+    keywords:
+    - freshrss
+    - rss
+    - feed
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-1.1.0/freshrss-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 1.21.0
     created: "2023-04-26T20:52:10.84300583Z"
     description: A Helm chart for FreshRSS
     digest: a90aec26175f8e76b8af392826ca811b43422551a018aa0e73439b3a9382f116
@@ -316,4 +334,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-13T19:34:39.042843336Z"
+generated: "2023-07-21T17:52:20.177508193Z"
