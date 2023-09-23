@@ -335,6 +335,16 @@ entries:
     version: 0.1.0
   unifi-controller:
   - apiVersion: v2
+    appVersion: 7.5.174
+    created: "2023-09-23T14:00:37.931355994Z"
+    description: A Helm chart for the Unifi Controller
+    digest: c011a4b6a99a53376b0130427c3f8f78af04cbf99de7c084ad819cb3ada39e29
+    name: unifi-controller
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-1.2.0/unifi-controller-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
     appVersion: 7.4.162
     created: "2023-07-13T19:23:03.64393455Z"
     description: A Helm chart for the Unifi Controller
@@ -374,4 +384,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-07T22:10:23.156997312Z"
+generated: "2023-09-23T14:00:37.931559497Z"
