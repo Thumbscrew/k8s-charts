@@ -2,8 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
-
 image:
   repository: jellyfin/jellyfin
   pullPolicy: IfNotPresent
@@ -34,7 +32,7 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: true
   runAsUser: 1000
-  fsGroup: 1000
+  runAsGroup: 1000
 
 persistence:
   # -- Persistence config for the /config volume
