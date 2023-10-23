@@ -5,7 +5,9 @@ metadata:
   labels:
     {{- include "jellyfin.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       {{- include "jellyfin.selectorLabels" . | nindent 6 }}
@@ -45,7 +47,7 @@ spec:
               path: /
               port: http
             periodSeconds: 10
-            failureThreshold: 30
+            failureThreshold: 6
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
