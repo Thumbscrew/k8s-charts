@@ -48,7 +48,7 @@ spec:
               port: http
             periodSeconds: 10
             failureThreshold: 6
-          {{- if .Values.jellyfin.publishedServerUrl -}}
+          {{- if .Values.jellyfin.publishedServerUrl }}
           env:
             - name: JELLYFIN_PublishedServerUrl
               value: {{ .Values.jellyfin.publishedServerUrl }}
