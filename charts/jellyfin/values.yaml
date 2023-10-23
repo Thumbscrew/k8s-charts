@@ -34,6 +34,10 @@ securityContext:
   runAsUser: 1000
   runAsGroup: 1000
 
+jellyfin:
+  # -- See PublishedServerUrl at https://jellyfin.org/docs/general/administration/configuration#main-configuration-options
+  publishedServerUrl: ""
+
 persistence:
   # -- Persistence config for the /config volume
   config:
