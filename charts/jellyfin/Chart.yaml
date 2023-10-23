@@ -1,6 +1,16 @@
 apiVersion: v2
 name: jellyfin
-description: A Helm chart for Kubernetes
+description: A Helm chart for Jellyfin, the Free Software Media System that puts you in control of managing and streaming your media.
+home: https://jellyfin.org
+sources:
+  - https://github.com/jellyfin/jellyfin
+keywords:
+  - jellyfin
+  - media
+  - management
+  - video
+  - open source
+icon: https://jellyfin.org/images/logo.svg
 
 # A chart can be either an 'application' or a 'library' chart.
 #
