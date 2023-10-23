@@ -32,6 +32,7 @@ I will generally only maintain the charts that I am currently using. See below f
 |pgadmin|PostgreSQL database management tool|https://www.pgadmin.org/|Yes|
 |unifi-controller|Unifi Controller (using linuxserver.io's image) for managing Unifi hardware||Yes|
 |focalboard|Kanban board software by Mattermost|https://www.focalboard.com/|Yes|
+|jellyfin|Open source media management system|https://jellyfin.org|Yes|
 
 ## Contributing
 
