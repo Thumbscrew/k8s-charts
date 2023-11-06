@@ -306,6 +306,27 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: 10.8.12
+    created: "2023-11-06T23:23:16.079175358Z"
+    description: A Helm chart for Jellyfin, the Free Software Media System that puts
+      you in control of managing and streaming your media.
+    digest: 84ad21e360deba60621a93c78d9e4a0ed1a843b9446d47f5e7b2434307768dd8
+    home: https://jellyfin.org
+    icon: https://jellyfin.org/images/logo.svg
+    keywords:
+    - jellyfin
+    - media
+    - management
+    - video
+    - open source
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/jellyfin-1.1.0/jellyfin-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 10.8.12
     created: "2023-11-05T22:00:42.916599398Z"
     description: A Helm chart for Jellyfin, the Free Software Media System that puts
       you in control of managing and streaming your media.
@@ -591,4 +612,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-05T22:10:26.899954997Z"
+generated: "2023-11-06T23:23:16.079272299Z"
