@@ -39,12 +39,12 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
             periodSeconds: 10
           startupProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
             periodSeconds: 10
             failureThreshold: 6
