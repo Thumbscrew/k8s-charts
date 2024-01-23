@@ -65,6 +65,26 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          - name: static
+            mountPath: /opt/recipes/staticfiles
+          - name: media
+            mountPath: /opt/recipes/mediafiles
+      volumes:
+      - name: static
+      {{- if .Values.persistence.static.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ if .Values.persistence.static.existingClaim }}{{ .Values.persistence.static.existingClaim }}{{- else }}{{ template "tandoor-recipes.fullname" . }}-static-pvc{{- end }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
+      - name: media
+      {{- if .Values.persistence.media.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ if .Values.persistence.media.existingClaim }}{{ .Values.persistence.media.existingClaim }}{{- else }}{{ template "tandoor-recipes.fullname" . }}-media-pvc{{- end }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

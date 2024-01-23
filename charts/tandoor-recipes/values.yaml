@@ -58,21 +58,23 @@ postgresql:
 
 recipes:
   secretKey: ""
-  persistence:
-    static:
-      enabled: false
-      existingClaim: ""
-      annotations: {}
-      accessMode: ReadWriteOnce
-      storageClass: ""
-      size: 1Gi
-    media:
-      enabled: false
-      existingClaim: ""
-      annotations: {}
-      accessMode: ReadWriteOnce
-      storageClass: ""
-      size: 1Gi
+
+persistence:
+  static:
+    enabled: false
+    existingClaim: ""
+    annotations: {}
+    accessMode: ReadWriteOnce
+    storageClass: ""
+    size: 1Gi
+  media:
+    enabled: false
+    existingClaim: ""
+    annotations: {}
+    accessMode: ReadWriteOnce
+    storageClass: ""
+    size: 1Gi
+
 ingress:
   enabled: false
   className: ""
