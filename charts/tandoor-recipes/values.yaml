@@ -38,19 +38,41 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
+
+externalPostgresql:
+  enabled: false
+  # host: postgres
+  port: 5432
+  database: recipes
+  username: recipes
+  # password: recipes
+
+postgresql:
+  enabled: true
+  auth:
+    database: recipes
+    username: recipes
+    password: recipes
+
 
 recipes:
-  db:
-      # -- Database name
-      name: recipes
-      # -- Database hostname
-      host: ""
-      # -- Database password
-      password: freshrss
-      # -- Database user
-      user: freshrss
-
+  secretKey: ""
+  persistence:
+    static:
+      enabled: false
+      existingClaim: ""
+      annotations: {}
+      accessMode: ReadWriteOnce
+      storageClass: ""
+      size: 1Gi
+    media:
+      enabled: false
+      existingClaim: ""
+      annotations: {}
+      accessMode: ReadWriteOnce
+      storageClass: ""
+      size: 1Gi
 ingress:
   enabled: false
   className: ""
@@ -58,14 +80,14 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: chart-example.local
+    - host: recipes.local
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls: []
-  #  - secretName: chart-example-tls
+  #  - secretName: recipes-tls
   #    hosts:
-  #      - chart-example.local
+  #      - recipes.local
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -78,13 +100,6 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
-
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 

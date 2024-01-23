@@ -1,6 +1,7 @@
 apiVersion: v2
 name: tandoor-recipes
-description: A Helm chart for Kubernetes
+description: A Helm chart for Tandoor Recipes, a digital recipe manager
+icon: https://github.com/vabene1111/recipes/raw/develop/docs/logo_color.svg
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -22,3 +23,9 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "1.5.6"
+
+dependencies:
+  - name: postgresql
+    version: ^12.12.10
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled

@@ -60,3 +60,81 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create a default fully qualified app name.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "tandoor-recipes.postgresql.fullname" -}}
+{{- printf "%s-%s" .Release.Name "postgresql" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Set postgres host
+*/}}
+{{- define "tandoor-recipes.postgresql.host" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- template "tandoor-recipes.postgresql.fullname" . -}}
+{{- else -}}
+{{ required "A valid externalPostgresql.host is required" .Values.externalPostgresql.host }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set postgres secret
+*/}}
+{{- define "tandoor-recipes.postgresql.secret" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- template "tandoor-recipes.postgresql.fullname" . -}}
+{{- else -}}
+{{- template "tandoor-recipes.fullname" . -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set postgres port
+*/}}
+{{- define "tandoor-recipes.postgresql.port" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- if .Values.postgresql.service -}}
+{{- .Values.postgresql.service.port | default 5432 }}
+{{- else -}}
+5432
+{{- end -}}
+{{- else -}}
+{{- required "A valid externalPostgresql.port is required" .Values.externalPostgresql.port -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set postgresql username
+*/}}
+{{- define "tandoor-recipes.postgresql.username" -}}
+{{- if .Values.postgresql.enabled -}}
+{{ required "A valid postgresql.auth.username is required" .Values.postgresql.auth.username }}
+{{- else -}}
+{{ required "A valid externalPostgresql.username is required" .Values.externalPostgresql.username }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set postgresql password
+*/}}
+{{- define "tandoor-recipes.postgresql.password" -}}
+{{- if .Values.postgresql.enabled -}}
+{{ required "A valid postgresql.auth.password is required" .Values.postgresql.auth.password }}
+{{- else if not (and .Values.externalPostgresql.existingSecret .Values.externalPostgresql.existingSecretPasswordKey) -}}
+{{ required "A valid externalPostgresql.password is required" .Values.externalPostgresql.password }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set postgresql database
+*/}}
+{{- define "tandoor-recipes.postgresql.database" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- .Values.postgresql.auth.database | default "recipes" }}
+{{- else -}}
+{{ required "A valid externalPostgresql.database is required" .Values.externalPostgresql.database }}
+{{- end -}}
+{{- end -}}
