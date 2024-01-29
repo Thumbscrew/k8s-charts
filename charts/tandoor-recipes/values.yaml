@@ -15,12 +15,11 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -41,6 +40,7 @@ service:
   port: 8080
 
 externalPostgresql:
+  # -- Use an external PostgreSQL database
   enabled: false
   # host: postgres
   port: 5432
@@ -51,6 +51,7 @@ externalPostgresql:
   # existingSecretPasswordKey: password
 
 postgresql:
+  # -- Deploy Bitnami PostgreSQL sub-chart
   enabled: true
   auth:
     database: recipes
@@ -59,10 +60,12 @@ postgresql:
 
 
 recipes:
+  # -- Secret key used by Djano - see https://docs.tandoor.dev/system/configuration/#secret-key
   secretKey: ""
 
 persistence:
   static:
+    # -- Enable persistence for static files
     enabled: false
     existingClaim: ""
     annotations: {}
@@ -70,6 +73,7 @@ persistence:
     storageClass: ""
     size: 1Gi
   media:
+    # -- Enable persistence for media files
     enabled: false
     existingClaim: ""
     annotations: {}
