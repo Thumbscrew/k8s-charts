@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "tandoor-recipes.fullname" . }}
+  labels:
+    {{- include "tandoor-recipes.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "tandoor-recipes.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "tandoor-recipes.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "tandoor-recipes.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          env:
+            - name: DB_ENGINE
+              value: django.db.backends.postgresql
+            - name: POSTGRES_HOST
+              value: {{ include "tandoor-recipes.postgresql.host" . }}
+            - name: POSTGRES_PORT
+              value: {{ include "tandoor-recipes.postgresql.port" . | quote }}
+            - name: POSTGRES_USER
+              value: {{ include "tandoor-recipes.postgresql.username" . }}
+            - name: POSTGRES_PASSWORD
+              value: {{ include "tandoor-recipes.postgresql.password" . }}
+            - name: POSTGRES_DB
+              value: {{ include "tandoor-recipes.postgresql.database" . }}
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: recipes-secret-key
+                  key: password
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          - name: static
+            mountPath: /opt/recipes/staticfiles
+          - name: media
+            mountPath: /opt/recipes/mediafiles
+      volumes:
+      - name: static
+      {{- if .Values.persistence.static.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ if .Values.persistence.static.existingClaim }}{{ .Values.persistence.static.existingClaim }}{{- else }}{{ template "tandoor-recipes.fullname" . }}-static-pvc{{- end }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
+      - name: media
+      {{- if .Values.persistence.media.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ if .Values.persistence.media.existingClaim }}{{ .Values.persistence.media.existingClaim }}{{- else }}{{ template "tandoor-recipes.fullname" . }}-media-pvc{{- end }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

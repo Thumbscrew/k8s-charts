@@ -1,0 +1,32 @@
+{{- if .Values.persistence.static.enabled -}}
+{{- if not .Values.persistence.static.existingClaim -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "tandoor-recipes.fullname" . }}-static-pvc
+  labels:
+    {{- include "tandoor-recipes.labels" . | nindent 4 }}
+    # app.kubernetes.io/name: {{ include "tandoor-recipes.name" . }}
+    # helm.sh/chart: {{ include "tandoor-recipes.chart" . }}
+    # app.kubernetes.io/instance: {{ .Release.Name }}
+    # app.kubernetes.io/managed-by: {{ .Release.Service }}
+    # app.kubernetes.io/component: app
+{{- if .Values.persistence.static.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.static.annotations | indent 4 }}
+{{- end }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.static.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.static.size | quote }}
+{{- if .Values.persistence.static.storageClass }}
+{{- if (eq "-" .Values.persistence.static.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.static.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end -}}
+{{- end -}}
