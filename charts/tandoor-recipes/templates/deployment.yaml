@@ -46,8 +46,18 @@ spec:
               value: {{ include "tandoor-recipes.postgresql.port" . | quote }}
             - name: POSTGRES_USER
               value: {{ include "tandoor-recipes.postgresql.username" . }}
+            {{- if or .Values.postgresql.enabled .Values.externalPostgresql.existingSecret }}
             - name: POSTGRES_PASSWORD
-              value: {{ include "tandoor-recipes.postgresql.password" . }}
+              valueFrom:
+                secretKeyRef:
+                  {{- if .Values.postgresql.enabled }}
+                  name: {{ .Values.postgresql.existingSecret | default (include "tandoor-recipes.postgresql.fullname" .) }}
+                  key: password
+                  {{- else }}
+                  name: {{ .Values.externalPostgresql.existingSecret }}
+                  key: {{ .Values.externalPostgresql.existingSecretPasswordKey }}
+                  {{- end }}
+            {{- end }}
             - name: POSTGRES_DB
               value: {{ include "tandoor-recipes.postgresql.database" . }}
             - name: SECRET_KEY
