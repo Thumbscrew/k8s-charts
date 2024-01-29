@@ -47,6 +47,8 @@ externalPostgresql:
   database: recipes
   username: recipes
   # password: recipes
+  # existingSecret: recipes
+  # existingSecretPasswordKey: password
 
 postgresql:
   enabled: true
