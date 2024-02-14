@@ -34,6 +34,7 @@ I will generally only maintain the charts that I am currently using. See below f
 |focalboard|Kanban board software by Mattermost|https://www.focalboard.com/|Yes|
 |jellyfin|Open source media management system|https://jellyfin.org|Yes|
 |tandoor-recipes|Digital Recipe managment|https://tandoor.dev/|Yes|
+|silverbullet|Note-taking application optimized for people with a hacker mindset|https://silverbullet.md/|Yes|
 
 ## Contributing
 
