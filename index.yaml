@@ -704,6 +704,25 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
     version: 0.1.0
+  silverbullet:
+  - apiVersion: v2
+    appVersion: 0.7.1
+    created: "2024-02-14T21:40:00.291168636Z"
+    description: A Helm chart for SilverBullet - a note-taking application optimized
+      for people with a hacker mindset
+    digest: c25c82ef468e1f3a50b4775cb20cfb75488041806406045587aa3c0d4cafc60a
+    home: https://silverbullet.md/
+    keywords:
+    - silverbullet
+    - markdown
+    - notes
+    name: silverbullet
+    sources:
+    - https://github.com/silverbulletmd/silverbullet
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/silverbullet-0.1.0/silverbullet-0.1.0.tgz
+    version: 0.1.0
   tandoor-recipes:
   - apiVersion: v2
     appVersion: 1.5.11
@@ -808,4 +827,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-29T15:37:27.502106658Z"
+generated: "2024-02-14T21:40:00.291261399Z"
