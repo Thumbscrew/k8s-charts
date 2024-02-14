@@ -17,7 +17,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4.0.0 # using exact version because of https://github.com/Azure/setup-helm/issues/126
         with:
-          version: v3.14.0
+          version: v3.14.1
 
       - name: Lint charts
         run: helm lint charts/*
