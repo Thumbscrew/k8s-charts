@@ -38,8 +38,10 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           env:
+          {{- if .Values.silverbullet.authentication }}
             - name: SB_USER
               value: "{{ .Values.silverbullet.user }}:{{ .Values.silverbullet.pass }}"
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /

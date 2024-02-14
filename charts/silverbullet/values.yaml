@@ -5,7 +5,7 @@
 image:
   repository: zefhemel/silverbullet
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 imagePullSecrets: []
@@ -13,12 +13,11 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
   # Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -39,11 +38,15 @@ service:
   port: 3000
 
 silverbullet:
+  # -- Enable/disable user and password authentication
   authentication: true
+  # -- Username to use for logging in
   user: admin
+  # -- Password to use for logging in
   pass: silverbullet
 
 persistence:
+  # -- Persistence config for the /space volume
   enabled: false
   existingClaim: ""
   annotations: {}
