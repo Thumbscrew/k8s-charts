@@ -706,6 +706,24 @@ entries:
     version: 0.1.0
   silverbullet:
   - apiVersion: v2
+    appVersion: 0.7.5
+    created: "2024-02-29T23:09:03.784077502Z"
+    description: A Helm chart for SilverBullet - a note-taking application optimized
+      for people with a hacker mindset
+    digest: 4f2a075e3a6003c875caec1fe6767ca6976dcbe5e507ac440e552fa04f166802
+    home: https://silverbullet.md/
+    keywords:
+    - silverbullet
+    - markdown
+    - notes
+    name: silverbullet
+    sources:
+    - https://github.com/silverbulletmd/silverbullet
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/silverbullet-0.1.2/silverbullet-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 0.7.3
     created: "2024-02-27T19:21:35.485597699Z"
     description: A Helm chart for SilverBullet - a note-taking application optimized
@@ -845,4 +863,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-27T19:21:35.485700821Z"
+generated: "2024-02-29T23:09:03.784192009Z"
