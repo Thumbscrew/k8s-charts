@@ -761,6 +761,22 @@ entries:
     version: 0.1.0
   tandoor-recipes:
   - apiVersion: v2
+    appVersion: 1.5.13
+    created: "2024-03-16T16:21:10.557980338Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^14.3.3
+    description: A Helm chart for Tandoor Recipes, a digital recipe manager
+    digest: 876f90c67359726c04c2b1e80a481417ed1745fa378e1ba70f4dd4b71f9e8fef
+    icon: https://github.com/vabene1111/recipes/raw/develop/docs/logo_color.svg
+    name: tandoor-recipes
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/tandoor-recipes-0.2.2/tandoor-recipes-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
     appVersion: 1.5.12
     created: "2024-03-16T16:18:04.341768692Z"
     dependencies:
@@ -895,4 +911,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-16T16:18:04.341846066Z"
+generated: "2024-03-16T16:21:10.558074694Z"
