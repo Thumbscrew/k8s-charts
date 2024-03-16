@@ -67,12 +67,14 @@ spec:
                   key: password
           livenessProbe:
             httpGet:
-              path: /
+              path: /accounts/login/
               port: http
-          readinessProbe:
+          startupProbe:
             httpGet:
-              path: /
+              path: /accounts/login/
               port: http
+            periodSeconds: 3
+            failureThreshold: 30
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
