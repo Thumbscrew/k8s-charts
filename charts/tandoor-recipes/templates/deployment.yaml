@@ -74,7 +74,7 @@ spec:
               path: /accounts/login/
               port: http
             periodSeconds: 3
-            failureThreshold: 30
+            failureThreshold: 40
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
