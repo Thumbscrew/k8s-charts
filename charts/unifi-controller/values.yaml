@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 image:
-  repository: quay.io/linuxserver.io/unifi-controller
+  repository: lscr.io/linuxserver/unifi-network-application
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -55,6 +55,28 @@ service:
   # -- Use the same service for TCP and UDP ports - set to disabled if using a LoadBalancer with MetalLB
   combinedProtocols: true
   annotations: {}
+
+mongodb:
+  # -- Deploy Bitnami MongoDB sub-chart
+  enabled: true
+  auth:
+    databases:
+      - unifi
+    usernames:
+      - unifi
+    passwords:
+      - unifi
+
+externalMongodb:
+  # -- Use an external MongoDB database
+  enabled: false
+  # host: mongodb
+  port: 5432
+  database: mongo
+  username: mongo
+  # password: mongo
+  # existingSecret: mongo
+  # existingSecretPasswordKey: password
 
 ingress:
   enabled: false
