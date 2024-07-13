@@ -60,12 +60,15 @@ mongodb:
   # -- Deploy Bitnami MongoDB sub-chart
   enabled: true
   auth:
+    rootUser: root
+    rootPassword: unifi
     databases:
       - unifi
     usernames:
       - unifi
     passwords:
       - unifi
+  initdbScriptsConfigMap: initdb-scripts
 
 externalMongodb:
   # -- Use an external MongoDB database
