@@ -67,6 +67,26 @@ spec:
               value: {{ .Values.config.jvmMemory.startup }}
             - name: MEM_LIMIT
               value: {{ .Values.config.jvmMemory.limit }}
+            - name: MONGO_HOST
+              value: {{ include "unifi-controller.mongodb.host" . }}
+            - name: MONGO_PORT
+              value: {{ include "unifi-controller.mongodb.port" . | quote }}
+            - name: MONGO_USER
+              value: {{ include "unifi-controller.mongodb.username" . }}
+            {{- if or .Values.mongodb.enabled .Values.externalMongodb.existingSecret }}
+            - name: MONGO_PASS
+              valueFrom:
+                secretKeyRef:
+                  {{- if .Values.mongodb.enabled }}
+                  name: {{ .Values.mongodb.existingSecret | default (include "unifi-controller.mongodb.fullname" .) }}
+                  key: mongodb-passwords
+                  {{- else }}
+                  name: {{ .Values.externalMongodb.existingSecret }}
+                  key: {{ .Values.externalMongodb.existingSecretPasswordKey }}
+                  {{- end }}
+            {{- end }}
+            - name: MONGO_DBNAME
+              value: {{ include "unifi-controller.mongodb.database" . }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

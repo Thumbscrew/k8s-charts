@@ -1,0 +1,10 @@
+{{- if .Values.mongodb.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: initdb-scripts
+data:
+    init-mongo.js: |
+      db = db.getSiblingDB("{{ include "unifi-controller.mongodb.database" . }}");
+      db.grantRolesToUser("{{ include "unifi-controller.mongodb.username" . }}", [{role: "dbOwner", db: "{{ include "unifi-controller.mongodb.database" . }}_stat"}])
+{{- end }}
