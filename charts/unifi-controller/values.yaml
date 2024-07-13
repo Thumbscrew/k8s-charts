@@ -74,11 +74,10 @@ externalMongodb:
   # -- Use an external MongoDB database
   enabled: false
   # host: mongodb
-  port: 5432
-  database: mongo
-  username: mongo
-  # password: mongo
-  # existingSecret: mongo
+  port: 27017
+  database: unifi
+  username: unifi
+  # existingSecret: unifi-mongodb
   # existingSecretPasswordKey: password
 
 ingress:
