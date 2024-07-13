@@ -35,6 +35,7 @@ I will generally only maintain the charts that I am currently using. See below f
 |jellyfin|Open source media management system|https://jellyfin.org|Yes|
 |tandoor-recipes|Digital Recipe managment|https://tandoor.dev/|Yes|
 |silverbullet|Note-taking application optimized for people with a hacker mindset|https://silverbullet.md/|Yes|
+|cyberchef|The Cyber Swiss Army Knife by GCHQ|https://gchq.github.io/CyberChef|Yes|
 
 ## Contributing
 
