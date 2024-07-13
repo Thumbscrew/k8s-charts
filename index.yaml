@@ -1109,6 +1109,21 @@ entries:
     version: 0.1.1
   unifi-controller:
   - apiVersion: v2
+    appVersion: 8.1.127
+    created: "2024-07-13T15:19:13.982069896Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: ^15.3.0
+    description: A Helm chart for the Unifi Controller
+    digest: 798fd45a3970700d602abfe357a740431a4b2865ca6727d5dae157fa40a375c8
+    name: unifi-controller
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-3.0.0/unifi-controller-3.0.0.tgz
+    version: 3.0.0
+  - apiVersion: v2
     appVersion: 8.0.7
     created: "2023-11-27T22:47:59.523757856Z"
     description: A Helm chart for the Unifi Controller
@@ -1178,4 +1193,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-06T20:34:51.773818487Z"
+generated: "2024-07-13T15:19:13.982191113Z"
