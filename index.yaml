@@ -2,6 +2,23 @@ apiVersion: v1
 entries:
   cinny:
   - apiVersion: v2
+    appVersion: v4.1.0
+    created: "2024-08-16T22:21:14.700099445Z"
+    description: A Helm chart for the Cinny Matrix Client
+    digest: 255531f8e0fcc246de9937757453d7f3db9228f7ba2244dfefc2c932a398e83c
+    home: https://cinny.in/
+    icon: https://cinny.in/assets/cinny.svg
+    keywords:
+    - cinny
+    - matrix
+    name: cinny
+    sources:
+    - https://github.com/cinnyapp/cinny
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/cinny-3.1.0/cinny-3.1.0.tgz
+    version: 3.1.0
+  - apiVersion: v2
     appVersion: v4.0.3
     created: "2024-07-28T12:39:16.769759141Z"
     description: A Helm chart for the Cinny Matrix Client
@@ -1270,4 +1287,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-28T12:39:16.769895907Z"
+generated: "2024-08-16T22:21:14.700212868Z"
