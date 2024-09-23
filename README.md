@@ -31,10 +31,10 @@ I will generally only maintain the charts that I am currently using. See below f
 |freshrss|RSS reader written in PHP|https://freshrss.org/|Yes|
 |pgadmin|PostgreSQL database management tool|https://www.pgadmin.org/|Yes|
 |unifi-controller|Unifi Controller (using linuxserver.io's image) for managing Unifi hardware||Yes|
-|focalboard|Kanban board software by Mattermost|https://www.focalboard.com/|Yes|
+|focalboard|Kanban board software by Mattermost|https://www.focalboard.com/|No|
 |jellyfin|Open source media management system|https://jellyfin.org|Yes|
 |tandoor-recipes|Digital Recipe managment|https://tandoor.dev/|Yes|
-|silverbullet|Note-taking application optimized for people with a hacker mindset|https://silverbullet.md/|Yes|
+|silverbullet|Note-taking application optimized for people with a hacker mindset|https://silverbullet.md/|No|
 |cyberchef|The Cyber Swiss Army Knife by GCHQ|https://gchq.github.io/CyberChef|Yes|
 
 ## Contributing
