@@ -72,7 +72,7 @@ spec:
             {{- end }}
             {{- if .Values.freshrss.oidc.enabled }}
             - name: OIDC_ENABLED
-              value: true
+              value: "true"
             {{- with .Values.freshrss.oidc }}
             - name: OIDC_PROVIDER_METADATA_URL
               value: {{ .providerMetadataUrl }}
@@ -113,10 +113,11 @@ spec:
               value: {{ printf "%s" (join " " .xForwardedHeaders) }}
             {{- end }}
             - name: OIDC_SESSION_INACTIVITY_TIMEOUT
-              value: {{ .session.inactivityTimeout }}
-            {{- if ge .session.maxDuration 0 }}
+              # value: {{ printf "%d" (add .session.inactivityTimeout) }}
+              value: "{{ .session.inactivityTimeout }}"
+            {{- if ge .session.maxDuration 0.0 }}
             - name: OIDC_SESSION_MAX_DURATION
-              value: {{ printf "%d" (add .session.maxDuration) }}
+              value: "{{ .session.maxDuration }}"
             {{- end }}
             {{- if .session.type }}
             - name: OIDC_SESSION_TYPE
