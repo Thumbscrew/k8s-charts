@@ -114,7 +114,7 @@ spec:
             {{- end }}
             - name: OIDC_SESSION_INACTIVITY_TIMEOUT
               value: {{ .session.inactivityTimeout }}
-            {{- if .session.maxDuration > -1 }}
+            {{- if ge .session.maxDuration 0 }}
             - name: OIDC_SESSION_MAX_DURATION
               value: {{ printf "%d" (add .session.maxDuration) }}
             {{- end }}
