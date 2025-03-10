@@ -70,6 +70,59 @@ spec:
                 {{- end }}
                 --language {{ .Values.freshrss.autoInstall.language }}
             {{- end }}
+            {{- if .Values.freshrss.oidc.enabled }}
+            - name: OIDC_ENABLED
+              value: true
+            {{- with .Values.freshrss.oidc }}
+            - name: OIDC_PROVIDER_METADATA_URL
+              value: {{ .providerMetadataUrl }}
+            {{- if .existingClientSecret.name }}
+            - name: OIDC_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .existingClientSecret.name }}
+                  key: {{ .existingClientSecret.clientIdKey }}
+            - name: OIDC_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .existingClientSecret.name }}
+                  key: {{ .existingClientSecret.clientSecretKey }}
+            - name: OIDC_CLIENT_CRYPTO_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .existingClientSecret.name }}
+                  key: {{ .existingClientSecret.clientCryptoKeyKey }}
+            {{- else }}
+            - name: OIDC_CLIENT_ID
+              value: {{ .clientId }}
+            - name: OIDC_CLIENT_SECRET
+              value: {{ .clientSecretKey }}
+            - name: OIDC_CLIENT_CRYPTO_KEY
+              value: {{ .clientCryptoKey }}
+            {{- end }}
+            {{- if .remoteUserClaim }}
+            - name: OIDC_REMOTE_USER_CLAIM
+              value: {{ .remoteUserClaim }}
+            {{- end }}
+            {{- if .scopes }}
+            - name: OIDC_SCOPES
+              value: {{ printf "%s" (join " " .scopes) }}
+            {{- end }}
+            {{- if .xForwardedHeaders }}
+            - name: OIDC_X_FORWARDED_HEADERS
+              value: {{ printf "%s" (join " " .xForwardedHeaders) }}
+            {{- end }}
+            - name: OIDC_SESSION_INACTIVITY_TIMEOUT
+              value: {{ .session.inactivityTimeout }}
+            {{- if .session.maxDuration > -1 }}
+            - name: OIDC_SESSION_MAX_DURATION
+              value: {{ printf "%d" (add .session.maxDuration) }}
+            {{- end }}
+            {{- if .session.type }}
+            - name: OIDC_SESSION_TYPE
+              value: {{ .session.type }}
+            {{- end }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /i/

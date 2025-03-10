@@ -78,6 +78,29 @@ freshrss:
     enabled: false
     # -- Minute(s) past the hour to run cron
     cronMin: "13,43"
+  oidc:
+    enabled: false
+    providerMetadataUrl: ""
+    clientId: ""
+    clientSecret: ""
+    clientCryptoKey: ""
+    existingClientSecret:
+      name: ""
+      clientIdKey: clientId
+      clientSecretKey: clientSecret
+      clientCryptoKeyKey: clientCryptoKey
+    remoteUserClaim: ""
+    scopes: []
+      # - openid
+    xForwardedHeaders: []
+      # - Forwarded
+      # - X-Forwarded-Host
+      # - X-Forwarded-Port
+      # - X-Forwarded-Proto
+    session:
+      inactivityTimeout: 300
+      maxDuration: -1
+      type: ""
 
 persistence:
   enabled: false
