@@ -72,7 +72,7 @@ spec:
             {{- end }}
             {{- if .Values.freshrss.oidc.enabled }}
             - name: OIDC_ENABLED
-              value: "true"
+              value: "1"
             {{- with .Values.freshrss.oidc }}
             - name: OIDC_PROVIDER_METADATA_URL
               value: {{ .providerMetadataUrl }}
