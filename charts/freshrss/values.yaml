@@ -78,6 +78,42 @@ freshrss:
     enabled: false
     # -- Minute(s) past the hour to run cron
     cronMin: "13,43"
+  # -- See Configuration Environment Variables at https://freshrss.github.io/FreshRSS/en/admins/16_OpenID-Connect.html
+  oidc:
+    # -- Sets OIDC_ENABLED to true
+    enabled: false
+    # -- Sets OIDC_PROVIDER_METADATA_URL
+    providerMetadataUrl: ""
+    # -- Sets OIDC_CLIENT_ID
+    clientId: ""
+    # -- Sets OIDC_CLIENT_SECRET
+    clientSecret: ""
+    # -- Sets OIDC_CLIENT_CRYPTO_KEY
+    clientCryptoKey: ""
+    # -- A Kubernetes secret that contains the clientId, clientSecret and clientCryptoKey
+    existingClientSecret:
+      name: ""
+      clientIdKey: clientId
+      clientSecretKey: clientSecret
+      clientCryptoKeyKey: clientCryptoKey
+    # -- Sets OIDC_REMOTE_USER_CLAIM
+    remoteUserClaim: ""
+    # -- Sets OIDC_SCOPES (list is concatenated)
+    scopes: []
+      # - openid
+    # -- Sets OIDC_X_FORWARDED_HEADERS (list is concatenated)
+    xForwardedHeaders: []
+      # - Forwarded
+      # - X-Forwarded-Host
+      # - X-Forwarded-Port
+      # - X-Forwarded-Proto
+    session:
+      # -- Sets OIDC_SESSION_INACTIVITY_TIMEOUT
+      inactivityTimeout: 300
+      # -- Sets OIDC_SESSION_MAX_DURATION
+      maxDuration: -1
+      # -- Sets OIDC_SESSION_TYPE
+      type: ""
 
 persistence:
   enabled: false

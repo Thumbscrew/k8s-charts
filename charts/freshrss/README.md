@@ -1,6 +1,6 @@
 # freshrss
 
-![Version: 1.5.0](https://img.shields.io/badge/Version-1.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.25.0](https://img.shields.io/badge/AppVersion-1.25.0-informational?style=flat-square)
+![Version: 1.6.0](https://img.shields.io/badge/Version-1.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.25.0](https://img.shields.io/badge/AppVersion-1.25.0-informational?style=flat-square)
 
 A Helm chart for FreshRSS
 
@@ -30,6 +30,19 @@ A Helm chart for FreshRSS
 | freshrss.cron.cronMin | string | `"13,43"` | Minute(s) past the hour to run cron |
 | freshrss.cron.enabled | bool | `false` | Enable Cron to periodically refresh feeds |
 | freshrss.freshEnv | string | `"production"` | Enables additional development information if set to `development` (increases the level of logging and ensures that errors are displayed) |
+| freshrss.oidc | object | `{"clientCryptoKey":"","clientId":"","clientSecret":"","enabled":false,"existingClientSecret":{"clientCryptoKeyKey":"clientCryptoKey","clientIdKey":"clientId","clientSecretKey":"clientSecret","name":""},"providerMetadataUrl":"","remoteUserClaim":"","scopes":[],"session":{"inactivityTimeout":300,"maxDuration":-1,"type":""},"xForwardedHeaders":[]}` | See Configuration Environment Variables at https://freshrss.github.io/FreshRSS/en/admins/16_OpenID-Connect.html |
+| freshrss.oidc.clientCryptoKey | string | `""` | Sets OIDC_CLIENT_CRYPTO_KEY |
+| freshrss.oidc.clientId | string | `""` | Sets OIDC_CLIENT_ID |
+| freshrss.oidc.clientSecret | string | `""` | Sets OIDC_CLIENT_SECRET |
+| freshrss.oidc.enabled | bool | `false` | Sets OIDC_ENABLED to true |
+| freshrss.oidc.existingClientSecret | object | `{"clientCryptoKeyKey":"clientCryptoKey","clientIdKey":"clientId","clientSecretKey":"clientSecret","name":""}` | A Kubernetes secret that contains the clientId, clientSecret and clientCryptoKey |
+| freshrss.oidc.providerMetadataUrl | string | `""` | Sets OIDC_PROVIDER_METADATA_URL |
+| freshrss.oidc.remoteUserClaim | string | `""` | Sets OIDC_REMOTE_USER_CLAIM |
+| freshrss.oidc.scopes | list | `[]` | Sets OIDC_SCOPES (list is concatenated) |
+| freshrss.oidc.session.inactivityTimeout | int | `300` | Sets OIDC_SESSION_INACTIVITY_TIMEOUT |
+| freshrss.oidc.session.maxDuration | int | `-1` | Sets OIDC_SESSION_MAX_DURATION |
+| freshrss.oidc.session.type | string | `""` | Sets OIDC_SESSION_TYPE |
+| freshrss.oidc.xForwardedHeaders | list | `[]` | Sets OIDC_X_FORWARDED_HEADERS (list is concatenated) |
 | freshrss.timezone | string | `"UTC"` | PHP Timezone - see https://www.php.net/timezones |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
