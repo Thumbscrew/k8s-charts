@@ -15,9 +15,9 @@ jobs:
           fetch-depth: 0
 
       - name: Install Helm
-        uses: azure/setup-helm@v4.0.0 # using exact version because of https://github.com/Azure/setup-helm/issues/126
+        uses: azure/setup-helm@v4.3.0 # using exact version because of https://github.com/Azure/setup-helm/issues/126
         with:
-          version: v3.14.1
+          version: v3.17.3
 
       - name: Lint charts
         run: helm lint charts/*
