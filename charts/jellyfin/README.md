@@ -1,6 +1,6 @@
 # jellyfin
 
-![Version: 1.3.3](https://img.shields.io/badge/Version-1.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.10.6](https://img.shields.io/badge/AppVersion-10.10.6-informational?style=flat-square)
+![Version: 1.3.4](https://img.shields.io/badge/Version-1.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.10.7](https://img.shields.io/badge/AppVersion-10.10.7-informational?style=flat-square)
 
 A Helm chart for Jellyfin, the Free Software Media System that puts you in control of managing and streaming your media.
 
