@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "gramps-web.fullname" . }}-celery
+  labels:
+    {{- include "gramps-web.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.celery.autoscaling.enabled }}
+  replicas: {{ .Values.celery.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "gramps-web.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.celery.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "gramps-web.labels" . | nindent 8 }}
+        {{- with .Values.celery.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "gramps-web.serviceAccountName" . }}
+      {{- with .Values.celery.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}-celery
+          command: ["celery"]
+          args: ["-A", "gramps_webapi.celery", "worker", "--loglevel=info"]
+          env:
+            - name: GRAMPSWEB_TREE
+              value: {{ .Values.treeName }}
+            - name: GRAMPSWEB_CELERY_CONFIG__broker_url
+              value: redis://{{ include "gramps-web.redis.host" . }}:{{ include "gramps-web.redis.port" . }}/{{ include "gramps-web.redis.dbid" . }}
+            - name: GRAMPSWEB_CELERY_CONFIG__result_backend
+              value: redis://{{ include "gramps-web.redis.host" . }}:{{ include "gramps-web.redis.port" . }}/{{ include "gramps-web.redis.dbid" . }}
+            - name: GRAMPSWEB_RATELIMIT_STORAGE_URI
+              value: redis://{{ include "gramps-web.redis.host" . }}:{{ include "gramps-web.redis.port" . }}/{{ include "gramps-web.redis.dbid" . }}
+          {{- with .Values.celery.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.celery.image.repository }}:{{ .Values.celery.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.celery.image.pullPolicy }}
+          {{- with .Values.celery.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.celery.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.celery.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.celery.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.celery.volumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.celery.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.celery.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.celery.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

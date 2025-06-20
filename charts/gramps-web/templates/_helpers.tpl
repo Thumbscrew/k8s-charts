@@ -60,3 +60,65 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- define "gramps-web.redis.fullname" -}}
+{{- printf "%s-%s" .Release.Name "redis" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Set redis host
+*/}}
+{{- define "gramps-web.redis.host" -}}
+{{- if .Values.redis.enabled -}}
+{{- printf "%s-%s" (include "gramps-web.redis.fullname" .) "master" | trunc 63 | trimSuffix "-" -}}
+{{- else -}}
+{{ required "A valid externalRedis.host is required" .Values.externalRedis.host }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set redis secret
+*/}}
+{{- define "gramps-web.redis.secret" -}}
+{{- if .Values.redis.enabled -}}
+{{- template "gramps-web.redis.fullname" . -}}
+{{- else -}}
+{{- template "gramps-web.fullname" . -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set redis port
+*/}}
+{{- define "gramps-web.redis.port" -}}
+{{- if .Values.redis.enabled -}}
+{{- .Values.redis.master.service.port | default 6379 }}
+{{- else -}}
+{{ required "A valid externalRedis.port is required" .Values.externalRedis.port }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set redis password
+*/}}
+{{- define "gramps-web.redis.password" -}}
+{{- if (and .Values.redis.enabled .Values.redis.password) -}}
+{{ .Values.redis.password }}
+{{- else if (and .Values.redis.enabled .Values.redis.auth.password) -}}
+{{ .Values.redis.auth.password }}
+{{- else if .Values.externalRedis.password -}}
+{{ .Values.externalRedis.password }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set redis database id
+*/}}
+{{- define "gramps-web.redis.dbid" -}}
+{{- if .Values.redis.dbid -}}
+{{ .Values.redis.dbid }}
+{{- else if .Values.externalRedis.dbid -}}
+{{ .Values.externalRedis.dbid }}
+{{- end -}}
+{{- end -}}
+
