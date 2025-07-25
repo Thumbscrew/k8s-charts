@@ -1,6 +1,6 @@
 # tandoor-recipes
 
-![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.31](https://img.shields.io/badge/AppVersion-1.5.31-informational?style=flat-square)
+![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.35](https://img.shields.io/badge/AppVersion-1.5.35-informational?style=flat-square)
 
 A Helm chart for Tandoor Recipes, a digital recipe manager
 
@@ -8,7 +8,7 @@ A Helm chart for Tandoor Recipes, a digital recipe manager
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | postgresql | ^15.5.38 |
+| https://charts.bitnami.com/bitnami | postgresql | ^16.7.20 |
 
 ## Values
 
@@ -61,4 +61,5 @@ A Helm chart for Tandoor Recipes, a digital recipe manager
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` |  |
-
+| volumeMounts | list | `[]` |  |
+| volumes | list | `[]` |  |
