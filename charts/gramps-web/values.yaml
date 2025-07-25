@@ -40,13 +40,13 @@ podLabels: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
   # capabilities:
   #   drop:
   #   - ALL
   # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+  runAsNonRoot: true
+  runAsUser: 1000
 
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
@@ -74,11 +74,12 @@ ingress:
 
 persistence:
   # This is to enable persistence more information can be found here: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-  enabled: false
+  enabled: true
   # This is to set the storage class more information can be found here: https://kubernetes.io/docs/concepts/storage/storage-classes/
   storageClass: ""
   # This is to set the size of the persistent volume more information can be found here: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#resources
   size: 10Gi
+  accessMode: ReadWriteOnce
   # This is to set the name of an existing persistent volume claim more information can be found here: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#binding
   existingClaim: ""
 
@@ -132,15 +133,18 @@ tolerations: []
 affinity: {}
 
 treeName: "Gramps Web"
+secretKey: "changeme"
+secretKeySecret: ""
+baseUrl: ""
 
 redis:
   enabled: true
 
   ## Database ID for non-default database
-  # dbid: 0
+  dbid: 0
 
   auth:
-    enabled: true
+    enabled: false
     password: gramps
 
     ## Or use existing secret with "redis-password" key
@@ -162,7 +166,7 @@ externalRedis:
   # password: gramps
 
   ## Database ID for non-default database
-  # dbid: 0
+  dbid: 0
 
   ## The name of an existing secret with redis credentials
   # existingSecret: redis-secrets
@@ -191,13 +195,13 @@ celery:
   podSecurityContext: {}
     # fsGroup: 2000
 
-  securityContext: {}
+  securityContext:
     # capabilities:
     #   drop:
     #   - ALL
     # readOnlyRootFilesystem: true
-    # runAsNonRoot: true
-    # runAsUser: 1000
+    runAsNonRoot: true
+    runAsUser: 1000
 
   resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -217,13 +221,19 @@ celery:
       command:
         - sh
         - -c
-        - "celery -A grampsweb gramps_webapi.celery inspect ping --timeout=5 -d celery@$HOSTNAME | grep pong"
+        - "celery -A gramps_webapi.celery inspect ping --timeout=5 -d celery@$POD_NAME"
+    initialDelaySeconds: 10
+    periodSeconds: 30
+    timeoutSeconds: 5
   readinessProbe:
     exec:
       command:
         - sh
         - -c
-        - "celery -A grampsweb gramps_webapi.celery inspect ping --timeout=5 -d celery@$HOSTNAME | grep pong"
+        - "celery -A gramps_webapi.celery inspect ping --timeout=5 -d celery@$POD_NAME"
+    initialDelaySeconds: 10
+    periodSeconds: 30
+    timeoutSeconds: 5
 
   # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
   autoscaling:

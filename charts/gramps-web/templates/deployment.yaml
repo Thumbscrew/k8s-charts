@@ -45,6 +45,14 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           env:
+          {{- if .Values.baseUrl }}
+            - name: GRAMPSWEB_BASE_URL
+              value: {{ .Values.baseUrl | quote }}
+          {{- end }}
+            - name: GRAMPSHOME
+              value: /data
+            - name: GRAMPS_DATABASE_PATH
+              value: /data/.gramps/grampsdb
             - name: GRAMPSWEB_TREE
               value: {{ .Values.treeName }}
             - name: GRAMPSWEB_CELERY_CONFIG__broker_url
@@ -82,18 +90,13 @@ spec:
             mountPath: /app/secret
             subPath: secret
           - name: data
-            mountPath: /root/.gramps/grampsdb
+            mountPath: /data/.gramps/grampsdb
             subPath: grampsdb
           - name: data
-            mountPath: /root/.gramps/media
+            mountPath: /app/media
             subPath: media
           - name: tmp
             mountPath: /tmp
-          {{- if .Values.autoscaling.enabled }}
-          {{- with .Values.volumes }}
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          {{- end }}
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}

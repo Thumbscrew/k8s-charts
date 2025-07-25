@@ -115,10 +115,10 @@ Set redis password
 Set redis database id
 */}}
 {{- define "gramps-web.redis.dbid" -}}
-{{- if .Values.redis.dbid -}}
-{{ .Values.redis.dbid }}
-{{- else if .Values.externalRedis.dbid -}}
-{{ .Values.externalRedis.dbid }}
+{{- if .Values.redis.enabled -}}
+{{ .Values.redis.dbid | default 0 }}
+{{- else -}}
+{{ .Values.externalRedis.dbid | default 0 }}
 {{- end -}}
 {{- end -}}
 

@@ -35,8 +35,12 @@ spec:
       containers:
         - name: {{ .Chart.Name }}-celery
           command: ["celery"]
-          args: ["-A", "gramps_webapi.celery", "worker", "--loglevel=info"]
+          args: ["-A", "gramps_webapi.celery", "worker"]
           env:
+            - name: GRAMPSHOME
+              value: /data
+            - name: GRAMPS_DATABASE_PATH
+              value: /data/.gramps/grampsdb
             - name: GRAMPSWEB_TREE
               value: {{ .Values.treeName }}
             - name: GRAMPSWEB_CELERY_CONFIG__broker_url
@@ -45,6 +49,12 @@ spec:
               value: redis://{{ include "gramps-web.redis.host" . }}:{{ include "gramps-web.redis.port" . }}/{{ include "gramps-web.redis.dbid" . }}
             - name: GRAMPSWEB_RATELIMIT_STORAGE_URI
               value: redis://{{ include "gramps-web.redis.host" . }}:{{ include "gramps-web.redis.port" . }}/{{ include "gramps-web.redis.dbid" . }}
+            - name: GRAMPSWEB_SECRET_KEY
+              value: "i_ap8qvynWqxiM5m65pdy7Rh7bQQbd9czT5kZTY5zas"
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
           {{- with .Values.celery.securityContext }}
           securityContext:
             {{- toYaml . | nindent 12 }}
@@ -63,12 +73,44 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.celery.volumeMounts }}
           volumeMounts:
+          - name: data
+            mountPath: /app/users
+            subPath: users
+          - name: data
+            mountPath: /app/indexdir
+            subPath: index
+          - name: data
+            mountPath: /app/thumbnail_cache
+            subPath: thumb_cache
+          - name: data
+            mountPath: /app/cache
+            subPath: cache
+          - name: data
+            mountPath: /app/secret
+            subPath: secret
+          - name: data
+            mountPath: /data/.gramps/grampsdb
+            subPath: grampsdb
+          - name: data
+            mountPath: /app/media
+            subPath: media
+          - name: tmp
+            mountPath: /tmp
+          {{- with .Values.celery.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
-      {{- with .Values.celery.volumes }}
       volumes:
+      - name: data
+      {{- if .Values.persistence.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "gramps-web.fullname" . }}-pvc{{- end }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
+      - name: tmp
+        emptyDir: {}
+      {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.celery.nodeSelector }}
