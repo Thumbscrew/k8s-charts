@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   name: {{ include "gramps-web.fullname" . }}-celery
   labels:
-    {{- include "gramps-web.labels" . | nindent 4 }}
+    {{- include "gramps-web.celery.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.celery.autoscaling.enabled }}
   replicas: {{ .Values.celery.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "gramps-web.selectorLabels" . | nindent 6 }}
+      {{- include "gramps-web.celery.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.celery.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "gramps-web.labels" . | nindent 8 }}
+        {{- include "gramps-web.celery.labels" . | nindent 8 }}
         {{- with .Values.celery.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}

@@ -42,11 +42,25 @@ app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
+{{- define "gramps-web.celery.labels" -}}
+helm.sh/chart: {{ include "gramps-web.chart" . }}
+{{ include "gramps-web.celery.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end }}
+
 {{/*
 Selector labels
 */}}
 {{- define "gramps-web.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "gramps-web.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{- define "gramps-web.celery.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "gramps-web.name" . }}-celery
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
