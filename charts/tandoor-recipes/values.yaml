@@ -37,7 +37,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 8080
+  port: 80
 
 externalPostgresql:
   # -- Use an external PostgreSQL database
@@ -53,6 +53,8 @@ externalPostgresql:
 postgresql:
   # -- Deploy Bitnami PostgreSQL sub-chart
   enabled: true
+  image:
+    tag: latest
   auth:
     database: recipes
     username: recipes

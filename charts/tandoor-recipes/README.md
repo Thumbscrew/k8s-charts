@@ -1,6 +1,6 @@
 # tandoor-recipes
 
-![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.35](https://img.shields.io/badge/AppVersion-1.5.35-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.3.6](https://img.shields.io/badge/AppVersion-2.3.6-informational?style=flat-square)
 
 A Helm chart for Tandoor Recipes, a digital recipe manager
 
@@ -51,11 +51,12 @@ A Helm chart for Tandoor Recipes, a digital recipe manager
 | postgresql.auth.password | string | `"recipes"` |  |
 | postgresql.auth.username | string | `"recipes"` |  |
 | postgresql.enabled | bool | `true` | Deploy Bitnami PostgreSQL sub-chart |
+| postgresql.image.tag | string | `"latest"` |  |
 | recipes.secretKey | string | `""` | Secret key used by Djano - see https://docs.tandoor.dev/system/configuration/#secret-key |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `8080` |  |
+| service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
@@ -63,3 +64,4 @@ A Helm chart for Tandoor Recipes, a digital recipe manager
 | tolerations | list | `[]` |  |
 | volumeMounts | list | `[]` |  |
 | volumes | list | `[]` |  |
+
