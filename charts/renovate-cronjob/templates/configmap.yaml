@@ -1,0 +1,13 @@
+{{- if .Values.renovate.config.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "renovate-cronjob.fullname" . }}-config
+  labels:
+    {{- include "renovate-cronjob.labels" . | nindent 4 }}
+data:
+  {{- with .Values.renovate.config.data }}
+  config.json: |
+    {{- toPrettyJson . | nindent 4 -}}
+  {{- end }}
+{{- end }}
