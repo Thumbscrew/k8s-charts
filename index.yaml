@@ -1768,6 +1768,26 @@ entries:
   renovate-cronjob:
   - apiVersion: v2
     appVersion: 42.76.3
+    created: "2026-01-09T22:40:35.978417582Z"
+    description: A Helm chart for running Renovate as a CronJob in Kubernetes.
+    digest: 8e2d3608bce52140068bdfdc6b14ca6dbe4a0ad7d89faa605eb1f7be71ef949c
+    home: https://www.renovatebot.com/
+    icon: https://www.mend.io/wp-content/uploads/2024/05/Renovate.svg
+    keywords:
+    - renovate
+    - cronjob
+    - automation
+    - dependencies
+    - updates
+    name: renovate-cronjob
+    sources:
+    - https://github.com/renovatebot/renovate
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/renovate-cronjob-0.1.1/renovate-cronjob-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 42.76.3
     created: "2026-01-09T22:37:47.142110493Z"
     description: A Helm chart for running Renovate as a CronJob in Kubernetes.
     digest: ef672d307cb359e659526fc569dab484833d2489e3521d7a4504213118ab88bc
@@ -2155,4 +2175,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-09T22:37:47.142406453Z"
+generated: "2026-01-09T22:40:35.978563495Z"
