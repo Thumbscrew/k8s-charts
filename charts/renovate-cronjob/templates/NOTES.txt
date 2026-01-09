@@ -1,0 +1,3 @@
+CronJob "{{ include "renovate-cronjob.fullname" . }}" deployed to "{{ .Release.Namespace }}" namespace. You can run this manually with the command:
+
+kubectl -n {{ .Release.Namespace }} create job --from=cronjob/{{ include "renovate-cronjob.fullname" . }} {{ include "renovate-cronjob.fullname" . }}-manual
