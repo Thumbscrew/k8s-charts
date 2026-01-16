@@ -1,6 +1,6 @@
 # freshrss
 
-![Version: 1.8.0](https://img.shields.io/badge/Version-1.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.27.1](https://img.shields.io/badge/AppVersion-1.27.1-informational?style=flat-square)
+![Version: 1.9.0](https://img.shields.io/badge/Version-1.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.28.0](https://img.shields.io/badge/AppVersion-1.28.0-informational?style=flat-square)
 
 A Helm chart for FreshRSS
 
@@ -15,6 +15,8 @@ A Helm chart for FreshRSS
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | freshrss.autoInstall.apiEnabled | bool | `false` | Enable FreshRSS API |
 | freshrss.autoInstall.baseUrl | string | `"freshrss.local"` | URL for FreshRSS instance |
 | freshrss.autoInstall.db.host | string | `""` | Database hostname |

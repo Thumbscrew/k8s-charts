@@ -62,6 +62,9 @@ spec:
             mountPath: /media
           - name: jellyfin-cache
             mountPath: /cache
+          {{- if .Values.extraVolumeMounts }}
+            {{- toYaml .Values.extraVolumeMounts | nindent 10 }}
+          {{- end }}
       volumes:
       - name: jellyfin-config
       {{- if .Values.persistence.config.enabled }}
@@ -83,6 +86,9 @@ spec:
           claimName: {{ if .Values.persistence.cache.existingClaim }}{{ .Values.persistence.cache.existingClaim }}{{- else }}{{ template "jellyfin.fullname" . }}-cache-pvc{{- end }}
       {{- else }}
         emptyDir: {}
+      {{- end }}
+      {{- if .Values.extraVolumes }}
+        {{- toYaml .Values.extraVolumes | nindent 6 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

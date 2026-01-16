@@ -1,6 +1,6 @@
 # tandoor-recipes
 
-![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.3.6](https://img.shields.io/badge/AppVersion-2.3.6-informational?style=flat-square)
+![Version: 3.0.1](https://img.shields.io/badge/Version-3.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.3.6](https://img.shields.io/badge/AppVersion-2.3.6-informational?style=flat-square)
 
 A Helm chart for Tandoor Recipes, a digital recipe manager
 
@@ -19,6 +19,8 @@ A Helm chart for Tandoor Recipes, a digital recipe manager
 | externalPostgresql.enabled | bool | `false` | Use an external PostgreSQL database |
 | externalPostgresql.port | int | `5432` |  |
 | externalPostgresql.username | string | `"recipes"` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/tandoorrecipes/recipes"` |  |
@@ -62,6 +64,4 @@ A Helm chart for Tandoor Recipes, a digital recipe manager
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` |  |
-| volumeMounts | list | `[]` |  |
-| volumes | list | `[]` |  |
 
