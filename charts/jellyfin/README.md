@@ -1,6 +1,6 @@
 # jellyfin
 
-![Version: 1.4.2](https://img.shields.io/badge/Version-1.4.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.11.5](https://img.shields.io/badge/AppVersion-10.11.5-informational?style=flat-square)
+![Version: 1.5.0](https://img.shields.io/badge/Version-1.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.11.5](https://img.shields.io/badge/AppVersion-10.11.5-informational?style=flat-square)
 
 A Helm chart for Jellyfin, the Free Software Media System that puts you in control of managing and streaming your media.
 
@@ -15,6 +15,8 @@ A Helm chart for Jellyfin, the Free Software Media System that puts you in contr
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"jellyfin/jellyfin"` |  |

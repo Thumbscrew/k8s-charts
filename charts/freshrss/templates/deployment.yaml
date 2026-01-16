@@ -146,6 +146,9 @@ spec:
           volumeMounts:
           - name: freshrss-data
             mountPath: /var/www/FreshRSS/data
+          {{- if .Values.extraVolumeMounts }}
+            {{- toYaml .Values.extraVolumeMounts | nindent 10 }}
+          {{- end }}
       volumes:
       - name: freshrss-data
       {{- if .Values.persistence.enabled }}
@@ -153,6 +156,9 @@ spec:
           claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "freshrss.fullname" . }}-pvc{{- end }}
       {{- else }}
         emptyDir: {}
+      {{- end }}
+      {{- if .Values.extraVolumes }}
+        {{- toYaml .Values.extraVolumes | nindent 6 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
