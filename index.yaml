@@ -543,6 +543,24 @@ entries:
     version: 0.1.0
   freshrss:
   - apiVersion: v2
+    appVersion: 1.28.0
+    created: "2026-01-16T21:27:09.139804342Z"
+    description: A Helm chart for FreshRSS
+    digest: 680b9dccdb5efd03d18071306903dd83466b6de27b68c300a8e6e50aa910e501
+    home: https://freshrss.org/
+    icon: https://freshrss.org/images/icon.svg
+    keywords:
+    - freshrss
+    - rss
+    - feed
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-1.9.0/freshrss-1.9.0.tgz
+    version: 1.9.0
+  - apiVersion: v2
     appVersion: 1.27.1
     created: "2025-10-05T16:25:49.540077145Z"
     description: A Helm chart for FreshRSS
@@ -939,6 +957,27 @@ entries:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-0.1.0/freshrss-0.1.0.tgz
     version: 0.1.0
   jellyfin:
+  - apiVersion: v2
+    appVersion: 10.11.5
+    created: "2026-01-16T21:27:09.327469126Z"
+    description: A Helm chart for Jellyfin, the Free Software Media System that puts
+      you in control of managing and streaming your media.
+    digest: 8599719847534b24a7f830fe258c994da210e970b66e257f06cece61863d9f55
+    home: https://jellyfin.org
+    icon: https://jellyfin.org/images/logo.svg
+    keywords:
+    - jellyfin
+    - media
+    - management
+    - video
+    - open source
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/jellyfin-1.5.0/jellyfin-1.5.0.tgz
+    version: 1.5.0
   - apiVersion: v2
     appVersion: 10.11.5
     created: "2025-12-15T12:09:41.007043117Z"
@@ -1900,6 +1939,22 @@ entries:
   tandoor-recipes:
   - apiVersion: v2
     appVersion: 2.3.6
+    created: "2026-01-16T21:27:09.536202219Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ^16.7.20
+    description: A Helm chart for Tandoor Recipes, a digital recipe manager
+    digest: 4cbc001af1d21ea15353586f6774b027b5dea618c25063228955a1bc3a0bed78
+    icon: https://github.com/vabene1111/recipes/raw/develop/docs/logo_color.svg
+    name: tandoor-recipes
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/tandoor-recipes-3.0.1/tandoor-recipes-3.0.1.tgz
+    version: 3.0.1
+  - apiVersion: v2
+    appVersion: 2.3.6
     created: "2025-12-01T19:28:30.456282679Z"
     dependencies:
     - condition: postgresql.enabled
@@ -2175,4 +2230,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-09T22:40:35.978563495Z"
+generated: "2026-01-16T21:27:09.536606242Z"
