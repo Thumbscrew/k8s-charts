@@ -73,3 +73,4 @@ A Helm chart for Mattermost Focalboard
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | strategy | string | `"Recreate"` |  |
 | tolerations | list | `[]` |  |
+
