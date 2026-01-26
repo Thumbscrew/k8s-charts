@@ -505,6 +505,25 @@ entries:
   focalboard:
   - apiVersion: v2
     appVersion: 7.10.0
+    created: "2026-01-26T20:44:54.309920801Z"
+    description: A Helm chart for Mattermost Focalboard
+    digest: 77a939c3c56f11e017ba8442421edd9a55246f0afbbb7fd657a87555cf1d7121
+    home: https://www.focalboard.com/download/personal-edition/
+    icon: https://www.focalboard.com/img/logo.svg?version=v2
+    keywords:
+    - focalboard
+    - kanban
+    - mattermost
+    - project management
+    name: focalboard
+    sources:
+    - https://github.com/mattermost/focalboard
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/focalboard-0.2.1/focalboard-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 7.10.0
     created: "2023-05-25T12:54:18.346786179Z"
     description: A Helm chart for Mattermost Focalboard
     digest: c79e7d5a49838b55eecb3b85a487ab6c6dc7bba5a3d92eae4e864646bb25c95b
@@ -975,6 +994,27 @@ entries:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/freshrss-0.1.0/freshrss-0.1.0.tgz
     version: 0.1.0
   jellyfin:
+  - apiVersion: v2
+    appVersion: 10.11.6
+    created: "2026-01-26T20:44:54.531594407Z"
+    description: A Helm chart for Jellyfin, the Free Software Media System that puts
+      you in control of managing and streaming your media.
+    digest: 221a124df964a602a43b670c45667a14a51c9e20fc48c10ec7ba26502afb2034
+    home: https://jellyfin.org
+    icon: https://jellyfin.org/images/logo.svg
+    keywords:
+    - jellyfin
+    - media
+    - management
+    - video
+    - open source
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/jellyfin-1.5.1/jellyfin-1.5.1.tgz
+    version: 1.5.1
   - apiVersion: v2
     appVersion: 10.11.5
     created: "2026-01-16T21:27:09.327469126Z"
@@ -2268,4 +2308,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-26T19:56:56.948327271Z"
+generated: "2026-01-26T20:44:54.531846157Z"
