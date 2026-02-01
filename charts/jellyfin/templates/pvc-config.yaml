@@ -3,7 +3,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "jellyfin.fullname" . }}-pvc
+  name: {{ template "jellyfin.fullname" . }}-config-pvc
   labels:
     {{- include "jellyfin.labels" . | nindent 4 }}
     # app.kubernetes.io/name: {{ include "jellyfin.name" . }}
