@@ -1,6 +1,6 @@
 # cinny
 
-![Version: 3.10.2](https://img.shields.io/badge/Version-3.10.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v4.10.2](https://img.shields.io/badge/AppVersion-v4.10.2-informational?style=flat-square)
+![Version: 3.10.3](https://img.shields.io/badge/Version-3.10.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v4.10.5](https://img.shields.io/badge/AppVersion-v4.10.5-informational?style=flat-square)
 
 A Helm chart for the Cinny Matrix Client
 
