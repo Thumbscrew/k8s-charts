@@ -30,7 +30,7 @@ I will generally only maintain the charts that I am currently using. See below f
 |cinny|Cinny Matrix client|https://cinny.in/|Yes|
 |freshrss|RSS reader written in PHP|https://freshrss.org/|Yes|
 |pgadmin|PostgreSQL database management tool|https://www.pgadmin.org/|Yes|
-|unifi-controller|Unifi Controller (using linuxserver.io's image) for managing Unifi hardware||Yes|
+|unifi-controller|Unifi Controller (using linuxserver.io's image) for managing Unifi hardware||No|
 |focalboard|Kanban board software by Mattermost|https://www.focalboard.com/|No|
 |jellyfin|Open source media management system|https://jellyfin.org|Yes|
 |tandoor-recipes|Digital Recipe managment|https://tandoor.dev/|Yes|
