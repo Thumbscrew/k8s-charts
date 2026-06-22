@@ -496,6 +496,29 @@ entries:
     version: 1.0.0
   cyberchef:
   - apiVersion: v2
+    appVersion: 11.2.0
+    created: "2026-06-22T18:28:37.526960055Z"
+    description: A Helm chart for CyberChef, the Cyber Swiss Army Knife
+    digest: b8459d2b16a78961f974eb55f77b975640fe31a40c10a8962d289f57fa06d18f
+    home: https://gchq.github.io/CyberChef
+    keywords:
+    - cyber
+    - cyberchef
+    - tools
+    - hashing
+    - encoding
+    - compression
+    - encryption
+    - parsing
+    - open source
+    name: cyberchef
+    sources:
+    - https://github.com/gchq/CyberChef
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/cyberchef-2.1.0/cyberchef-2.1.0.tgz
+    version: 2.1.0
+  - apiVersion: v2
     appVersion: 11.0.0
     created: "2026-05-01T16:30:03.614228652Z"
     description: A Helm chart for CyberChef, the Cyber Swiss Army Knife
@@ -2607,4 +2630,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2026-06-22T18:26:07.633324096Z"
+generated: "2026-06-22T18:28:37.528872701Z"
