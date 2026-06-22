@@ -1,6 +1,6 @@
 # pgadmin
 
-![Version: 2.8.0](https://img.shields.io/badge/Version-2.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 8.12](https://img.shields.io/badge/AppVersion-8.12-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 9.16](https://img.shields.io/badge/AppVersion-9.16-informational?style=flat-square)
 
 A Helm chart for pgAdmin, the open source PostgreSQL administration tool.
 
