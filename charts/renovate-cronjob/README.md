@@ -1,6 +1,6 @@
 # renovate-cronjob
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 44](https://img.shields.io/badge/AppVersion-44-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 44](https://img.shields.io/badge/AppVersion-44-informational?style=flat-square)
 
 A Helm chart for running Renovate as a CronJob in Kubernetes.
 
