@@ -513,6 +513,29 @@ entries:
     version: 1.0.0
   cyberchef:
   - apiVersion: v2
+    appVersion: 11.5.0
+    created: "2026-10-07T16:26:13.633049917Z"
+    description: A Helm chart for CyberChef, the Cyber Swiss Army Knife
+    digest: 8fc790439d5970f53e09e9644c87ad74c273f1a9e078e791239d691eeda9cda1
+    home: https://gchq.github.io/CyberChef
+    keywords:
+    - cyber
+    - cyberchef
+    - tools
+    - hashing
+    - encoding
+    - compression
+    - encryption
+    - parsing
+    - open source
+    name: cyberchef
+    sources:
+    - https://github.com/gchq/CyberChef
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/cyberchef-2.2.1/cyberchef-2.2.1.tgz
+    version: 2.2.1
+  - apiVersion: v2
     appVersion: 11.2.0
     created: "2026-06-22T18:28:37.526960055Z"
     description: A Helm chart for CyberChef, the Cyber Swiss Army Knife
@@ -1248,6 +1271,27 @@ entries:
     version: 0.1.0
   jellyfin:
   - apiVersion: v2
+    appVersion: "12.2"
+    created: "2026-10-07T16:26:13.859741596Z"
+    description: A Helm chart for Jellyfin, the Free Software Media System that puts
+      you in control of managing and streaming your media.
+    digest: bdec4e1ff1434c46c05d74f4341e483af8fb4fcd1d12705e1f3485c8cf6b8b2d
+    home: https://jellyfin.org
+    icon: https://jellyfin.org/images/logo.svg
+    keywords:
+    - jellyfin
+    - media
+    - management
+    - video
+    - open source
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/jellyfin-2.0.1/jellyfin-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
     appVersion: 10.11.11
     created: "2026-06-22T18:32:06.264489169Z"
     description: A Helm chart for Jellyfin, the Free Software Media System that puts
@@ -1921,6 +1965,26 @@ entries:
     version: 0.1.0
   pgadmin:
   - apiVersion: v2
+    appVersion: "9.17"
+    created: "2026-10-07T16:26:14.039037322Z"
+    description: A Helm chart for pgAdmin, the open source PostgreSQL administration
+      tool.
+    digest: 50e27f8daf5191e5b2b0b4c24a558b503d7684af3a3cfca05be1fdd2a9ced4f8
+    home: https://www.pgadmin.org/
+    keywords:
+    - pgadmin
+    - postgres
+    - postgresql
+    - database
+    - administration
+    name: pgadmin
+    sources:
+    - https://github.com/pgadmin-org/pgadmin4
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/pgadmin-3.1.1/pgadmin-3.1.1.tgz
+    version: 3.1.1
+  - apiVersion: v2
     appVersion: "9.16"
     created: "2026-06-22T18:26:07.632711025Z"
     description: A Helm chart for pgAdmin, the open source PostgreSQL administration
@@ -2241,6 +2305,26 @@ entries:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/pgadmin-0.1.0/pgadmin-0.1.0.tgz
     version: 0.1.0
   renovate-cronjob:
+  - apiVersion: v2
+    appVersion: "44"
+    created: "2026-10-07T16:26:14.261139415Z"
+    description: A Helm chart for running Renovate as a CronJob in Kubernetes.
+    digest: 88a4bc4eb69f87af7590265e49d90909c39f92ca469b2db4d49ea1a720bb09a2
+    home: https://www.renovatebot.com/
+    icon: https://www.mend.io/wp-content/uploads/2024/05/Renovate.svg
+    keywords:
+    - renovate
+    - cronjob
+    - automation
+    - dependencies
+    - updates
+    name: renovate-cronjob
+    sources:
+    - https://github.com/renovatebot/renovate
+    type: application
+    urls:
+    - https://github.com/Thumbscrew/k8s-charts/releases/download/renovate-cronjob-1.0.1/renovate-cronjob-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: "42"
     created: "2026-01-24T20:08:15.680021881Z"
@@ -2686,4 +2770,4 @@ entries:
     urls:
     - https://github.com/Thumbscrew/k8s-charts/releases/download/unifi-controller-0.1.0/unifi-controller-0.1.0.tgz
     version: 0.1.0
-generated: "2026-10-07T16:12:15.182968593Z"
+generated: "2026-10-07T16:26:14.26178118Z"
